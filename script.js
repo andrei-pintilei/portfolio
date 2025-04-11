@@ -272,11 +272,12 @@ function initScript() {
   FadeUp();
   Clip();
   accordion();
-  pop();
+  // pop();
   alternativeparallax();
   animateMarquee();
   hideheader();
-  // Headings();
+  Headings();
+  colorChange();
 }
 
 // function enterText() {
@@ -305,6 +306,11 @@ function initScript() {
 //   });
 //   ScrollTrigger.refresh();
 // }
+
+
+
+
+
 
 function Stuck() {
   const button = document.querySelector('.circle');
@@ -463,12 +469,12 @@ function Clip(){
   gsap.to("[data-speed]", {
     y: (i, el) => (-1 * parseFloat(el.getAttribute("data-speed"))) * (postsSection.offsetHeight / 3),
     ease: "power2.inOut",
-    duration: 1,
+    duration: .5,
     scrollTrigger: {
       trigger:postsSection,
       scroller: '.scroll-container',
       invalidateOnRefresh: true,
-      scrub: 3,
+      scrub: 1,
       // markers: true,
       start: 'top bottom',
     }
@@ -660,7 +666,7 @@ marquee.forEach((e) => {
         scrub: 0.3,
         refreshPriority: -14,
     })
-});
+});ScrollTrigger.refresh();
 }
 
 const navSlide = () => {
@@ -688,6 +694,8 @@ const navSlide = () => {
 
 }
 navSlide();
+
+
 
 
 const navSlideout = () => {
@@ -799,7 +807,7 @@ removeEventListener('resize', resize)
 
 // Dark Mode
 // const darkmode = gsap.timeline({paused:true, reversed:true});
-// darkmode.to('html',{"--black": "rgb(255, 255, 255)", "--white": "#FFF", "--soft-d": "#f2f2f2", "--darkest": "#fff","--soft":"#b2b2b2", duration: .3, ease: 'power3.inOut'})
+// darkmode.to('html',{"--black": "#FFF", "--white": "#000", "--soft-d": "#ff", "--darkest": "#fff","--soft":"#000", duration: .3, ease: 'power3.inOut'})
 // darkmode.to('.innertoggle', {translateX: 15, duration: .3, ease: 'power3.inOut'},'<')
 // const darktoggle = document.querySelector('.dark2')
 
@@ -811,5 +819,19 @@ removeEventListener('resize', resize)
 // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 //   // dark mode
 //   darkmode.play();
+// }
+
+// const colorChange = () => {
+//   const tl = gsap.timeline({paused:true, reversed:true});
+//   tl.to('html',{"--black": "#333", "--white": "#000", "--soft-d": "#ff", "--darkest": "#fff","--soft":"#000", duration: .3, ease: 'power3.inOut',
+//     scrollTrigger: {
+//       trigger: section,
+//       scroller: '.scroll-container',
+//       start: 'top bottom',
+//       end: '+=100%',
+//       scrub:0.5,
+//       // markers:true,
+//     }
+//   })
 // }
 
